@@ -1,34 +1,34 @@
 Here I am going to demonstrate the difference between for, foreach, and foreach-object. (We also do have foreach-object -parallel now in the market with new PS versions 7 and more).
 
 ##########################################
-  $value = 1000000
-  $time = Measure-Command {
-    for ($i=0; $i -lt $value; $i++){}
-  } | Select-Object -ExpandProperty Totalseconds
-  Write-Host "for i loop took $time"
+$value = 1000000
+$time = Measure-Command {
+  for ($i = 0; $i -lt $value; $i++) {}
+} | Select-Object -ExpandProperty Totalseconds
+Write-Host "for i loop took $time"
 
-  Output that I have received,
-  for i loop took 1.4552234
-
-##########################################
-   $value = 1000000
-   $time = Measure-Command {
-     foreach ($i in $value){}
-   } | Select-Object -ExpandProperty Totalseconds
-   Write-Host "foreach i loop took $time"
-  
-  Output that I have received,
-  foreach i loop took 0.0008824
+Output that I have received,
+for i loop took 1.4552234
 
 ##########################################
-  $value = 1000000
-  $time = Measure-Command {
-   $value | ForEach-Object{}
-  } | Select-Object -ExpandProperty Totalseconds
-  Write-Host "foreach i loop took $time"
+$value = 1000000
+$time = Measure-Command {
+  foreach ($i in $value) {}
+} | Select-Object -ExpandProperty Totalseconds
+Write-Host "foreach i loop took $time"
   
-  Output that I have received,
-  foreach i loop took 0.0012595
+Output that I have received,
+foreach i loop took 0.0008824
+
+##########################################
+$value = 1000000
+$time = Measure-Command {
+  $value | ForEach-Object {}
+} | Select-Object -ExpandProperty Totalseconds
+Write-Host "foreach i loop took $time"
+  
+Output that I have received,
+foreach i loop took 0.0012595
 
 
 After running all loops,

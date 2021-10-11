@@ -5,7 +5,7 @@ foreach ($web in $webs) {
     try {
         $result = Test-connection $web -Count 1 -ErrorAction Stop
         $property = @{
-            Source = $result.PSComputerName
+            Source      = $result.PSComputerName
             Destination = $result.ProtocolAddress
         }
         $output += new-object psobject -property $property
@@ -14,7 +14,7 @@ foreach ($web in $webs) {
         $hostname = $env:COMPUTERNAME 
         $result = $_.exception.message
         $property = @{
-            Source = $hostname
+            Source      = $hostname
             Destination = $result
         }
         $output += new-object psobject -property $property
