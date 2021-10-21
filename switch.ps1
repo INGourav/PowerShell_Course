@@ -10,3 +10,6 @@ foreach ($server in $servers) {
         Default { "The OS is neither 2012R2 nor Windows10" }
     }
 }
+
+##########################################
+The switch stament generally used to select condition based on the output of certain code.
